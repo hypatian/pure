@@ -86,17 +86,18 @@ prompt pure
 
 ## Options
 
-| Option                           | Description                                                                                    | Default value  |
-| :------------------------------- | :--------------------------------------------------------------------------------------------- | :------------- |
-| **`PURE_CMD_MAX_EXEC_TIME`**     | The max execution time of a process before its run time is shown when it exits.                | `5` seconds    |
-| **`PURE_GIT_PULL=0`**            | Prevents Pure from checking whether the current Git remote has been updated.                   |                |
-| **`PURE_GIT_UNTRACKED_DIRTY=0`** | Do not include untracked files in dirtiness check. Mostly useful on large repos (like WebKit). |                |
-| **`PURE_GIT_DELAY_DIRTY_CHECK`** | Time in seconds to delay git dirty checking when `git status` takes > 5 seconds.               | `1800` seconds |
-| **`PURE_PROMPT_SYMBOL`**         | Defines the prompt symbol.                                                                     | `❯`            |
-| **`PURE_PROMPT_VICMD_SYMBOL`**   | Defines the prompt symbol used when the `vicmd` keymap is active (VI-mode).                    | `❮`            |
-| **`PURE_GIT_DOWN_ARROW`**        | Defines the git down arrow symbol.                                                             | `⇣`            |
-| **`PURE_GIT_UP_ARROW`**          | Defines the git up arrow symbol.                                                               | `⇡`            |
-| **`PURE_GIT_STASH_SYMBOL`**      | Defines the git stash symbol.                                                                  | `≡`            |
+| Option                            | Description                                                                                    | Default value  |
+| :-------------------------------- | :--------------------------------------------------------------------------------------------- | :------------- |
+| **`PURE_CMD_MAX_EXEC_TIME`**      | The max execution time of a process before its run time is shown when it exits.                | `5` seconds    |
+| **`PURE_GIT_PULL=0`**             | Prevents Pure from checking whether the current Git remote has been updated.                   |                |
+| **`PURE_GIT_UNTRACKED_DIRTY=0`**  | Do not include untracked files in dirtiness check. Mostly useful on large repos (like WebKit). |                |
+| **`PURE_GIT_DELAY_DIRTY_CHECK`**  | Time in seconds to delay git dirty checking when `git status` takes > 5 seconds.               | `1800` seconds |
+| **`PURE_PROMPT_SYMBOL`**          | Defines the prompt symbol.                                                                     | `❯`            |
+| **`PURE_PROMPT_VICMD_SYMBOL`**    | Defines the prompt symbol used when the `vicmd` keymap is active (VI-mode).                    | `❮`            |
+| **`PURE_GIT_DOWN_ARROW`**         | Defines the git down arrow symbol.                                                             | `⇣`            |
+| **`PURE_GIT_UP_ARROW`**           | Defines the git up arrow symbol.                                                               | `⇡`            |
+| **`PURE_GIT_STASH_SYMBOL`**       | Defines the git stash symbol.                                                                  | `≡`            |
+| **`PURE_PROMPT_PATH_FORMATTING`** | Defines the prompt string used to include the path in the prompt.                              | `%~`           |
 
 ## Zstyle options
 
@@ -145,11 +146,14 @@ The following diagram shows where each color is applied on the prompt:
 │      │           │          │     │ │        │ ┌───── git:stash
 │      │           │          │     │ │        │ │ ┌─── execution_time
 │      │           │          │     │ │        │ │ │
-zaphod@heartofgold ~/dev/pure master* rebase-i ⇡ ≡ 42s
-venv ❯
-│    │
-│    └───────────────────────────────────────────────── prompt
-└────────────────────────────────────────────────────── virtualenv (or prompt:continuation)
+zaphod@heartofgold ~/dev/pure master* rebase-i ⇡ ≡ 42s venv ❯ if
+                                                       │    │
+                                         virtualenv ───┘    │
+                                             prompt ────────┘
+
+… if ❯
+|    └────────── prompt
+└─────────────── prompt:continuation
 ```
 
 ### RGB colors
