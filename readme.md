@@ -1,12 +1,14 @@
 # Pure
 
-> Pretty, minimal and fast ZSH prompt
+> Pretty, minimal and fast ZSH prompt (one-line version)
 
 <img src="screenshot.png" width="864">
 
 <br>
 
 ---
+
+Please support the original author:
 
 <div align="center">
 	<p>
